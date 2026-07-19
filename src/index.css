@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+  background-color: rgb(235, 235, 237);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.container form {
+  width: 500px;
+}
+.container form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+input,
+label,
+form button {
+  width: 100%;
+}
+input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 3px 12px;
+  border-radius: 8px;
+}
+label {
+  display: inline-block;
+  margin: 20px 0 5px 0;
+}
+
+form button {
+  padding: 8px 35px;
+  border: 1px solid #bcb5b5;
+  background-color: rgba(166, 166, 166, 0.2);
+  border-radius: 8px;
+  transition: all .3;
+  cursor: pointer;
+  margin-top: 20px;
+}
+form button:hover{
+  background-color: rgba(166, 166, 166, 0.4);
+}
+
+.error{
+  font-size: 10px;
+  color: red;
+  text-align: left;
+
+}
+.input-error{
+  border: 1px solid red;
+}
