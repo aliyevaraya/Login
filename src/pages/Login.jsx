@@ -2,23 +2,15 @@ import { useFormik } from "formik";
 import { loginSchema } from "../schema";
 import { useNavigate } from "react-router-dom";
 
-const userInfo = {
-  email: "admin@gmail.com",
-  password: "A1234z",
-  token: true,
-};
-localStorage.setItem("user", JSON.stringify(userInfo));
-
-
-function Login() {
-  const navigate = useNavigate()
+function Login({ setUser }) {
+  const navigate = useNavigate();
 
   const onSubmit = (values, actions) => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const haveAccess =
-    user.email === values.email && user.password === values.password;
     actions.resetForm();
-    haveAccess ? navigate('/home') : navigate('/')
+    const newUser = { ...values, token: true };
+    localStorage.setItem("user", JSON.stringify(newUser));
+    setUser(newUser);
+    navigate("/");
   };
 
   const {
@@ -33,6 +25,7 @@ function Login() {
     initialValues: {
       email: "",
       password: "",
+      token: false,
     },
     validationSchema: loginSchema,
     onSubmit,
